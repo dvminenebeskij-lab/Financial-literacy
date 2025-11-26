@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartFinance</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter', sans-serif; background:#f4f7f9; color:#333; line-height:1.6; }
+    a { text-decoration:none; color:inherit; }
+
+    header { background:#1f2937; color:#f9fafb; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; }
+    header h1 { font-size:1.8rem; font-weight:700; }
+    nav a { margin-left:25px; font-weight:500; transition:0.3s; }
+    nav a:hover { color:#10b981; }
+
+    .hero { display:flex; justify-content:center; align-items:center; height:400px; background:linear-gradient(135deg,#10b981,#047857); color:white; text-align:center; padding:0 20px; }
+    .hero h2 { font-size:2.2rem; margin-bottom:15px; }
+    .hero p { font-size:1.1rem; max-width:600px; margin:0 auto 20px; }
+    .hero button { padding:12px 28px; background:#f9fafb; color:#047857; border:none; border-radius:6px; font-weight:600; cursor:pointer; transition:0.3s; }
+    .hero button:hover { background:#e5e7eb; }
+
+    .container { max-width:1200px; margin:60px auto; padding:0 20px; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
+    .card { background:white; padding:25px; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,0.08); transition:0.3s; cursor:pointer; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 15px 25px rgba(0,0,0,0.12); }
+    .card h3 { color:#047857; margin-bottom:12px; }
+    .card p { font-size:0.95rem; margin-bottom:15px; }
+    .card button { background:#10b981; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; transition:0.3s; }
+    .card button:hover { background:#047857; }
+
+    footer { background:#1f2937; color:#f9fafb; text-align:center; padding:20px 0; margin-top:60px; }
+
+    .modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background: rgba(0,0,0,0.6); }
+    .modal-content { background:white; margin:5% auto; padding:30px; border-radius:12px; max-width:800px; position:relative; max-height:90%; overflow-y:auto; }
+    .close { position:absolute; top:15px; right:20px; font-size:1.5rem; cursor:pointer; color:#333; }
+
+    h4 { color:#047857; margin-top:15px; }
+    ul { margin-left:20px; margin-bottom:15px; }
+
+    @media(max-width:768px){ header{ flex-direction:column; gap:15px; text-align:center;} .hero{ height:auto; padding:60px 20px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SmartFinance</h1>
+  <nav>
+    <a href="#tips">Поради</a>
+    <a href="#tools">Інструменти</a>
+    <a href="#blog">Блог</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Контролюй свої фінанси та ростись фінансово</h2>
+    <p>Секрети економії, пасивного доходу та управління бюджетом в одному місці.</p>
+    <button onclick="document.getElementById('modalStart').style.display='block'">Почати зараз</button>
+  </div>
+</section>
+
+<div class="container">
+
+  <section id="tips">
+    <h2>Топ фінансові поради</h2>
+    <div class="cards">
+      <div class="card" onclick="document.getElementById('modalBudget').style.display='block'">
+        <h3>Бюджет на місяць</h3>
+        <p>Розподіляй доходи на потреби, бажання і заощадження.</p>
+        <button>Дізнатись більше</button>
+      </div>
+      <div class="card" onclick="document.getElementById('modalInvest').style.display='block'">
+        <h3>Інвестиції</h3>
+        <p>Відкрий довгострокові інвестиції для стабільного доходу.</p>
+        <button>Дізнатись більше</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <h2>Інструменти</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Калькулятор бюджету</h3>
+        <p>Вводь доходи та витрати, щоб оцінити фінансовий стан.</p>
+        <button onclick="alert('Тут можна додати інтерактивний калькулятор')">Спробувати</button>
+      </div>
+      <div class="card">
+        <h3>Трекер витрат</h3>
+        <p>Фіксуй витрати щодня для реальної картини бюджету.</p>
+        <button onclick="alert('Тут можна додати трекер витрат')">Скачати</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Останні статті</h2>
+    <div class="cards">
+      <div class="card" onclick="document.getElementById('modalSave').style.display='block'">
+        <h3>Як економити без стресу</h3>
+        <p>Прості лайфхаки для більш ефективного заощадження.</p>
+        <button>Читати</button>
+      </div>
+      <div class="card" onclick="document.getElementById('modalPassive').style.display='block'">
+        <h3>Пасивний дохід: з чого почати</h3>
+        <p>Реальні способи отримувати дохід без щоденної роботи.</p>
+        <button>Читати</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2025 SmartFinance. Всі права захищені.</p>
+</footer>
+
+<!-- Модальные окна с подробной информацией -->
+<div id="modalBudget" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modalBudget').style.display='none'">&times;</span>
+    <h2>Бюджет на місяць</h2>
+    <p>Створення бюджету — перший крок до фінансової стабільності.</p>
+    <h4>Основні принципи:</h4>
+    <ul>
+      <li>50% доходу — основні потреби (житло, їжа, транспорт)</li>
+      <li>30% доходу — бажання (хобі, розваги, покупки)</li>
+      <li>20% доходу — заощадження та інвестиції</li>
+    </ul>
+    <h4>Практичні поради:</h4>
+    <ul>
+      <li>Ведіть щоденний облік витрат</li>
+      <li>Використовуйте додатки для контролю бюджету</li>
+      <li>Регулярно переглядайте бюджет і коригуйте його</li>
+    </ul>
+  </div>
+</div>
+
+<div id="modalInvest" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modalInvest').style.display='none'">&times;</span>
+    <h2>Інвестиції</h2>
+    <p>Інвестиції допомагають примножувати капітал з часом.</p>
+    <h4>Популярні варіанти:</h4>
+    <ul>
+      <li>Акції та ETF</li>
+      <li>Облігації та депозитні сертифікати</li>
+      <li>Онлайн-платформи з пасивним доходом</li>
+    </ul>
+    <h4>Поради для новачків:</h4>
+    <ul>
+      <li>Відкладайте щомісяця 10% доходу</li>
+      <li>Диверсифікуйте інвестиції</li>
+      <li>Не очікуйте миттєвого результату — інвестиції довгострокові</li>
+    </ul>
+  </div>
+</div>
+
+<div id="modalSave" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modalSave').style.display='none'">&times;</span>
+    <h2>Як економити без стресу</h2>
+    <p>Економія може бути комфортною і без обмежень.</p>
+    <h4>Стратегії:</h4>
+    <ul>
+      <li>Ставте фінансові цілі</li>
+      <li>Використовуйте автоматичні заощадження</li>
+      <li>Скорочуйте непотрібні витрати поступово</li>
+    </ul>
+  </div>
+</div>
+
+<div id="modalPassive" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modalPassive').style.display='none'">&times;</span>
+    <h2>Пасивний дохід: з чого почати</h2>
+    <p>Пасивний дохід дозволяє заробляти без щоденної роботи.</p>
+    <h4>Види пасивного доходу:</h4>
+    <ul>
+      <li>Депозити та відсотки банків</li>
+      <li>Інвестиції в акції, ETF, облігації</li>
+      <li>Онлайн-сервіси та автоматизація бізнесу</li>
+    </ul>
+    <h4>Як почати:</h4>
+    <ul>
+      <li>Почніть з невеликих сум</li>
+      <li>Вивчайте обраний напрямок</li>
+      <li>Збільшуйте вкладення поступово</li>
+    </ul>
+  </div>
+</div>
+
+<div id="modalStart" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modalStart').style.display='none'">&times;</span>
+    <h2>Розпочати фінансову свободу</h2>
+    <p>Виберіть перший крок: складіть бюджет, ведіть трекер витрат або дізнайтеся про пасивний дохід.</p>
+  </div>
+</div>
+
+<script>
+  window.onclick = function(event){
+    document.querySelectorAll('.modal').forEach(modal=>{
+      if(event.target == modal) modal.style.display = "none";
+    });
+  }
+</script>
+
+</body>
+</html>
